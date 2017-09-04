@@ -30,7 +30,6 @@ function createXmlHttp(){
 function checkUserName(){
     var url = "${pageContext.request.contextPath}";
     var username = $("#username").val();
-    alert("checkUserName"+username);
     var xhr = createXmlHttp();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4){

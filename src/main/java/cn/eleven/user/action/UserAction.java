@@ -37,6 +37,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
     }
 
 
+    /**
+     * 校验用户名是否存在
+     * @return
+     * @throws IOException
+     */
     public String findByUserName() throws IOException {
        User exitUser = userService.findByUserName(user.getUsername());
        HttpServletResponse response =   ServletActionContext.getResponse();
@@ -48,6 +53,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
            //用户名不存在
            response.getWriter().print("<font color='green'>用户名可以使用</font>");
        }
+        return null;
+    }
+
+
+    public String register(){
+        System.out.print("=====================");
         return null;
     }
 

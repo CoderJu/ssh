@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -40,8 +42,9 @@
             <div class="main clearfix">
                 <div class="title">
                     <strong>会员注册</strong>USER REGISTER
+
                 </div>
-                <form id="registerForm"  method="post" novalidate="novalidate" >
+                <form id="registerForm"  method="post" novalidate="novalidate"  action="${pageContext.request.contextPath}/user_register.action">
                     <table>
                         <tbody><tr>
                             <th>
@@ -50,6 +53,7 @@
                             <td>
                                 <input type="text" id="username" name="username" class="text" maxlength="20" onblur="checkUserName()">
                                 <span id="usernameId"></span>
+                                <strong><s:fielderror fieldName="username"/></strong>
                             </td>
                         </tr>
                         <tr>
@@ -58,6 +62,7 @@
                             </th>
                             <td>
                                 <input type="password" id="password" name="password" class="text" maxlength="20" autocomplete="off">
+                                <strong><s:fielderror fieldName="password"/></strong>
                             </td>
                         </tr>
                         <tr>
