@@ -9,16 +9,26 @@
 <div class="span10 last">
     <div class="topNav clearfix">
         <ul>
+            <s:if test="#session.exitUser == null">
             <li id="headerLogin" class="headerLogin" style="display: list-item;">
-                <a href="login.htm">登录</a>|
+                <a href="${pageContext.request.contextPath}/user_loginPage.action">登录</a>|
             </li>
             <li id="headerRegister" class="headerRegister" style="display: list-item;">
                 <a href="${pageContext.request.contextPath}/user_registerPage.action">注册</a>|
             </li>
-            <li id="headerUsername" class="headerUsername"></li>
-            <li id="headerLogout" class="headerLogout">
-                <a>[退出]</a>|
-            </li>
+            </s:if>
+            <s:else>
+                <li id="" class="">
+                 欢迎<s:property value="#session.exitUser.name"/>&nbsp;|
+                </li>
+                <li id="" class="">
+                    <a href="#">我的订单</a>|
+                </li>
+
+                <li id="" class="">
+                    <a href="${pageContext.request.contextPath}/user_logout.action">[退出]</a>|
+                </li>
+            </s:else>
             <li>
                 <a>会员中心</a>
                 |

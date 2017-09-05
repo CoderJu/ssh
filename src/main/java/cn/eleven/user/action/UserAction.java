@@ -60,9 +60,49 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 
     public String register() throws Exception {
         userService.save(user);
-        IndexAction indexAction = new IndexAction();
-        return indexAction.execute();
+        this.addActionMessage("注册成功，请去邮箱激活！");
+        return "msg";
     }
 
+    /**
+     * 激活用户
+     * @return
+     */
+    public String active(){
+        User exitUser = userService.findByCode(user.getCode());
+        if (exitUser == null){
+            this.addActionMessage("激活失败！激活码错误！");
+        }else {
+            exitUser.setState(1);
+            exitUser.setCode("");
+            userService.update(exitUser);
+            this.addActionMessage("激活成功！请去登陆！");
+        }
+        return  "msg";
+    }
 
+    public String loginPage(){
+        return "login";
+    }
+
+    /**
+     * 登陆方法
+     * @return
+     */
+    public String login(){
+       User exitUser =  userService.login(user);
+       if (exitUser == null){
+        this.addActionMessage("登录失败，用户名密码错误或者未激活！");
+        return LOGIN;
+       }else {
+        ServletActionContext.getRequest().getSession().setAttribute("exitUser",exitUser);
+        return "loginSuccess";
+       }
+
+    }
+
+    public String logout(){
+        ServletActionContext.getRequest().getSession().invalidate();
+        return "logout";
+    }
 }

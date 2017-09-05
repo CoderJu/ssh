@@ -33,4 +33,31 @@ public class UserDao extends HibernateDaoSupport {
     public void save(User user) {
         this.getHibernateTemplate().save(user);
     }
+
+    /**
+     * 按照激活码查询
+     * @param code
+     * @return
+     */
+    public User findByCode(String code) {
+        String hql = "from User u where u.code = ?";
+        List<User> list = (List<User>) this.getHibernateTemplate().find(hql,code);
+        if (list != null && list.size() > 0){
+            return list.get(0);
+        }
+        return null;
+    }
+
+    public void update(User exitUser) {
+        this.getHibernateTemplate().update(exitUser);
+    }
+
+    public User login(User user) {
+        String hql = "from User u where u.username = ? and u.password=? and u.state = '1' ";
+        List<User> list =  (List<User>)this.getHibernateTemplate().find(hql,user.getUsername(),user.getPassword());
+        if (list != null && list.size() > 0){
+            return list.get(0);
+        }
+        return null;
+    }
 }

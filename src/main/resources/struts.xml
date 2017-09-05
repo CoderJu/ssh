@@ -8,6 +8,9 @@
 
     <constant name="struts.devMode" value="false"/>
     <package name="shop" extends="struts-default" namespace="/">
+        <global-results>
+            <result name="msg">/WEB-INF/jsp/msg.jsp</result>
+        </global-results>
         <global-allowed-methods>regex:.*</global-allowed-methods>
         <action name="index" class="indexAction">
             <result name="index">/WEB-INF/jsp/index.jsp</result>
@@ -15,7 +18,10 @@
         <action name="user_*" class="userAction" method="{1}">
             <result name="registerPage">/WEB-INF/jsp/register.jsp</result>
             <result name="input">/WEB-INF/jsp/register.jsp</result>
-            <result name="index">/WEB-INF/jsp/index.jsp</result>
+            <result name="login">/WEB-INF/jsp/login.jsp</result>
+            <result name="login">/WEB-INF/jsp/login.jsp</result>
+            <result name="loginSuccess" type="redirectAction">index</result>
+            <result name="logout" type="redirectAction">index</result>
         </action>
     </package>
 </struts>
