@@ -15,7 +15,7 @@
         <action name="user_*" class="userAction" method="{1}">
             <result name="registerPage">/WEB-INF/jsp/register.jsp</result>
             <result name="input">/WEB-INF/jsp/register.jsp</result>
-            <result name="success">/WEB-INF/jsp/register.jsp</result>
+            <result name="index">/WEB-INF/jsp/index.jsp</result>
         </action>
     </package>
 </struts>

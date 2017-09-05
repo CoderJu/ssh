@@ -1,5 +1,6 @@
 package cn.eleven.user.action;
 
+import cn.eleven.index.action.IndexAction;
 import cn.eleven.user.pojo.User;
 import cn.eleven.user.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -57,9 +58,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
     }
 
 
-    public String register(){
-        System.out.print("=====================");
-        return null;
+    public String register() throws Exception {
+        userService.save(user);
+        IndexAction indexAction = new IndexAction();
+        return indexAction.execute();
     }
 
 

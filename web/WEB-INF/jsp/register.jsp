@@ -79,6 +79,7 @@
                             </th>
                             <td>
                                 <input type="text" id="email" name="email" class="text" maxlength="200">
+                                <strong><s:fielderror fieldName="email"/></strong>
                             </td>
                         </tr>
                         <tr>
