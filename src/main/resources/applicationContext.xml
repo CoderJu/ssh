@@ -57,6 +57,10 @@
     <bean name="userAction" class="cn.eleven.user.action.UserAction" scope="prototype">
         <property name="userService" ref="userService"/>
     </bean>
+    <!--验证码Action-->
+    <bean name="CheckImageAction" class="cn.eleven.user.action.CheckImageAction" scope="prototype">
+
+    </bean>
     <!--service的相关配置-->
     <bean name="userService" class="cn.eleven.user.service.UserService" >
         <property name="userDao" ref="userDao"/>

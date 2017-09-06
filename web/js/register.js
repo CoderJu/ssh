@@ -41,3 +41,7 @@ function checkUserName(){
     xhr.open("GET",url+"/user_findByUserName.action?username="+username+"&time="+new Date().getTime(),true);
     xhr.send(null);
 }
+
+function change(){
+    $("#checkImg").attr('src',"${pageContext.request.contextPath}/CheckImage.action?"+new Date().getTime());
+}

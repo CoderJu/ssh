@@ -114,7 +114,7 @@
                             </th>
                             <td>
 										<span class="fieldSet">
-											<input type="text" id="captcha" name="captcha" class="text captcha" maxlength="4" autocomplete="off"><img id="captchaImage" class="captchaImage" src="${pageContext.request.contextPath}/image/captcha.jhtml" title="点击更换验证码">
+											<input type="text" id="checkCode" name="checkCode" class="text captcha" maxlength="4" autocomplete="off"><img id="checkImg" class="captchaImage" src="${pageContext.request.contextPath}/CheckImage.action" title="点击更换验证码" onclick="change()">
 										</span>
                             </td>
                         </tr>

@@ -23,5 +23,8 @@
             <result name="loginSuccess" type="redirectAction">index</result>
             <result name="logout" type="redirectAction">index</result>
         </action>
+        <action name="CheckImage" class="CheckImageAction">
+
+        </action>
     </package>
 </struts>
