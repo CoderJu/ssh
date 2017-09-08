@@ -22,6 +22,8 @@
             <result name="login">/WEB-INF/jsp/login.jsp</result>
             <result name="loginSuccess" type="redirectAction">index</result>
             <result name="logout" type="redirectAction">index</result>
+            <result name="checkCodeFail">/WEB-INF/jsp/register.jsp</result>
+            <result name="loginCheckCodeFail">/WEB-INF/jsp/login.jsp</result>
         </action>
         <action name="CheckImage" class="CheckImageAction">
 

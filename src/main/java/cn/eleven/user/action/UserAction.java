@@ -33,6 +33,13 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
         return user;
     }
 
+    //接收验证码
+    private String checkCode;
+
+    public void setCheckCode(String checkCode) {
+        this.checkCode = checkCode;
+    }
+
     public String registerPage(){
         return "registerPage";
     }
@@ -59,6 +66,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 
 
     public String register() throws Exception {
+        //验证码判断
+        String code = ServletActionContext.getRequest().getSession().getAttribute("checkcode").toString();
+        if (!code.equalsIgnoreCase(checkCode)){
+            this.addActionError("验证码错误，请重新输入！");
+            return "checkCodeFail";
+        }
         userService.save(user);
         this.addActionMessage("注册成功，请去邮箱激活！");
         return "msg";
@@ -90,6 +103,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
      * @return
      */
     public String login(){
+        //验证码判断
+        String code = ServletActionContext.getRequest().getSession().getAttribute("checkcode").toString();
+        if (!code.equalsIgnoreCase(checkCode)){
+            this.addActionError("验证码错误，请重新输入！");
+            return "loginCheckCodeFail";
+        }
        User exitUser =  userService.login(user);
        if (exitUser == null){
         this.addActionMessage("登录失败，用户名密码错误或者未激活！");
