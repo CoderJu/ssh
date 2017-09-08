@@ -41,6 +41,7 @@
         <property name="mappingResources">
             <list>
                 <value>user/pojo/User.hbm.xml</value>
+                <value>category/pojo/Categoey.hbm.xml</value>
             </list>
         </property>
 
@@ -53,7 +54,9 @@
     <!--开启注解事务-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!--Action的相关配置-->
-    <bean name="indexAction" class="cn.eleven.index.action.IndexAction" scope="prototype"/>
+    <bean name="indexAction" class="cn.eleven.index.action.IndexAction" scope="prototype">
+        <property name="categoryService" ref="categoryService"/>
+    </bean>
     <bean name="userAction" class="cn.eleven.user.action.UserAction" scope="prototype">
         <property name="userService" ref="userService"/>
     </bean>
@@ -66,9 +69,17 @@
         <property name="userDao" ref="userDao"/>
     </bean>
 
+    <bean name="categoryService" class="cn.eleven.category.service.CategoryService" >
+        <property name="categoryDao" ref="categoryDao"/>
+    </bean>
+
     <!--Dao的相关配置-->
     <bean name="userDao" class="cn.eleven.user.dao.UserDao" >
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+    <bean name="categoryDao" class="cn.eleven.category.dao.CategoryDao" >
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
 
 </beans>

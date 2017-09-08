@@ -54,13 +54,15 @@
 <div class="span24">
     <ul class="mainNav">
         <li>
-            <a href="${pageContext.request.contextPath}/index.htm">首页</a>
+            <a href="${pageContext.request.contextPath}/index.action">首页</a>
             |
         </li>
+        <s:iterator value="#session.categoryList" var="category">
         <li>
-            <a href="${pageContext.request.contextPath}/蔬菜分类.htm">定制套餐</a>
+            <a href="${pageContext.request.contextPath}/蔬菜分类.htm"><s:property value="#category.cname"/> </a>
             |
         </li>
+        </s:iterator>
         <li>
             <a >安全频道</a>
             |
