@@ -29,11 +29,14 @@ public class IndexAction extends ActionSupport{
     @Override
     public String execute() throws Exception {
         List<Category> categoryList =  categoryService.findAll();
-        //将一级分类存入到session的泛微
+        //将一级分类存入到session的范围
         ActionContext.getContext().getSession().put("categoryList",categoryList);
         List<Product> hotProductsList =  productService.findAllHot();
+
+        List<Product> newProductsList = productService.findAllNew();
         //存到stack中
         ActionContext.getContext().getValueStack().set("hotProductsList",hotProductsList);
+        ActionContext.getContext().getValueStack().set("newProductsList",newProductsList);
         return "index";
     }
 

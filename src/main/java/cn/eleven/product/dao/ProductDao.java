@@ -21,4 +21,16 @@ public class ProductDao  extends HibernateDaoSupport{
         List<Product> list = (List<Product>) this.getHibernateTemplate().findByCriteria(criteria,0,10);
         return list;
     }
+
+    public List<Product> findAllNew() {
+        DetachedCriteria criteria = DetachedCriteria.forClass(Product.class);
+        criteria.addOrder(Order.desc("pdate"));
+        List<Product> list = (List<Product>) this.getHibernateTemplate().findByCriteria(criteria,0,10);
+        return list;
+
+    }
+
+    public Product findById(Integer pid) {
+        return this.getHibernateTemplate().get(Product.class,pid);
+    }
 }

@@ -62,7 +62,7 @@
             <ul class="tabContent" style="display: block;">
                 <s:iterator var="product" value="hotProductsList">
                     <li>
-                        <a  target="_blank"><img src="${pageContext.request.contextPath}<s:property value="#product.image"/> " data-original="http://storage.shopxx.net/demo-image/3.0/201301/51afeef5-f6cb-4936-abea-315cfca0edc0-thumbnail.jpg" style="display: block;"></a>
+                        <a  href="${pageContext.request.contextPath}/product_findById.action?pid=<s:property value="#product.pid"/>" target="_blank"><img src="${pageContext.request.contextPath}<s:property value="#product.image"/> " data-original="http://storage.shopxx.net/demo-image/3.0/201301/51afeef5-f6cb-4936-abea-315cfca0edc0-thumbnail.jpg" style="display: block;"></a>
                     </li>
                 </s:iterator>
             </ul>
@@ -137,35 +137,12 @@
                     <a target="_blank"></a>
                 </li>
             </ul>
-            <!-- 					<div class="newProductAd">
-                                                <img src="${pageContext.request.contextPath}/image/q.jpg" width="260" height="343" alt="最新商品" title="最新商品">
-                                    </div>
-                                     -->
             <ul class="tabContent" style="display: block;">
+                <s:iterator value="newProductsList" var="np">
                 <li>
-                    <a  target="_blank"><img src="${pageContext.request.contextPath}/image/l.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/4a51167a-89d5-4710-aca2-7c76edc355b8-thumbnail.jpg" style="display: block;"></a>									</li>
-                <li>
-                    <a  target="_blank"><img src="${pageContext.request.contextPath}/image/m.jpg" style="display: block;"></a>									</li>
-
-                <li>
-                    <a target="_blank"><img src="${pageContext.request.contextPath}/image/n.jpg" style="display: block;"></a>									</li>
-                <li>
-                    <a target="_blank"><img src="${pageContext.request.contextPath}/image/o.jpg" style="display: block;"></a>									</li>
-                <li>
-                    <a target="_blank"><img src="${pageContext.request.contextPath}/image/p.jpg" style="display: block;"></a>									</li>
-                <li>
-                    <a target="_blank"><img src="${pageContext.request.contextPath}/image/m.jpg" style="display: block;"></a>									</li>
-                <li>
-                    <a  target="_blank"><img src="${pageContext.request.contextPath}/image/15.jpg" style="display: block;"></a>
-                <li>
-                    <a  target="_blank"><img src="${pageContext.request.contextPath}/image/l.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/b499fb5e-999f-431b-a375-172ee09e4a3e-thumbnail.jpg" style="display: block;" /></a>
+                    <a  href="${pageContext.request.contextPath}/product_findById.action?pid=<s:property value="#np.pid"/>" target="_blank"><img src="${pageContext.request.contextPath}<s:property value="#np.image"/>" data-original="http://storage.shopxx.net/demo-image/3.0/201301/4a51167a-89d5-4710-aca2-7c76edc355b8-thumbnail.jpg" style="display: block;"></a>
                 </li>
-                <li>
-                    <a  target="_blank"><img src="${pageContext.request.contextPath}/image/l.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/b499fb5e-999f-431b-a375-172ee09e4a3e-thumbnail.jpg" style="display: block;" /></a>
-                </li>
-                <li>
-                    <a  target="_blank"><img src="${pageContext.request.contextPath}/image/l.jpg" data-original="http://storage.shopxx.net/demo-image/3.0/201301/b499fb5e-999f-431b-a375-172ee09e4a3e-thumbnail.jpg" style="display: block;" /></a>
-                </li>
+                </s:iterator>
             </ul>
             <ul class="tabContent" style="display: none;">
                 <li>

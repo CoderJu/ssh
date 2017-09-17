@@ -25,8 +25,9 @@
             <result name="checkCodeFail">/WEB-INF/jsp/register.jsp</result>
             <result name="loginCheckCodeFail">/WEB-INF/jsp/login.jsp</result>
         </action>
-        <action name="CheckImage" class="CheckImageAction">
-
+        <action name="CheckImage" class="CheckImageAction"/>
+        <action name="product_*" class="ProductAction" method="{1}">
+            <result name="findByPid">/WEB-INF/jsp/product.jsp</result>
         </action>
     </package>
 </struts>

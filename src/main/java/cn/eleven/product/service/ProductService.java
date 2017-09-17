@@ -22,4 +22,12 @@ public class ProductService {
     public List<Product> findAllHot() {
         return productDao.findAllHot();
     }
+
+    public List<Product> findAllNew() {
+        return productDao.findAllNew();
+    }
+
+    public Product findById(Integer pid) {
+        return productDao.findById(pid);
+    }
 }

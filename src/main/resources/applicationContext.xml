@@ -65,6 +65,9 @@
     <bean name="CheckImageAction" class="cn.eleven.user.action.CheckImageAction" scope="prototype">
 
     </bean>
+    <bean name="ProductAction" class="cn.eleven.product.action.ProductAction" scope="prototype">
+        <property name="productService" ref="productService"/>
+    </bean>
     <!--service的相关配置-->
     <bean name="userService" class="cn.eleven.user.service.UserService" >
         <property name="userDao" ref="userDao"/>
