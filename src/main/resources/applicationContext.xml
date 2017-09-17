@@ -42,9 +42,9 @@
             <list>
                 <value>user/pojo/User.hbm.xml</value>
                 <value>category/pojo/Categoey.hbm.xml</value>
+                <value>product/pojo/Product.hbm.xml</value>
             </list>
         </property>
-
     </bean>
     <!--事务管理-->
     <!--事务管理器-->
@@ -56,6 +56,7 @@
     <!--Action的相关配置-->
     <bean name="indexAction" class="cn.eleven.index.action.IndexAction" scope="prototype">
         <property name="categoryService" ref="categoryService"/>
+        <property name="productService" ref="productService"/>
     </bean>
     <bean name="userAction" class="cn.eleven.user.action.UserAction" scope="prototype">
         <property name="userService" ref="userService"/>
@@ -72,12 +73,18 @@
     <bean name="categoryService" class="cn.eleven.category.service.CategoryService" >
         <property name="categoryDao" ref="categoryDao"/>
     </bean>
+    <bean name="productService" class="cn.eleven.product.service.ProductService" >
+        <property name="productDao" ref="productDao"/>
+    </bean>
 
     <!--Dao的相关配置-->
     <bean name="userDao" class="cn.eleven.user.dao.UserDao" >
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <bean name="categoryDao" class="cn.eleven.category.dao.CategoryDao" >
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="productDao" class="cn.eleven.product.dao.ProductDao" >
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
