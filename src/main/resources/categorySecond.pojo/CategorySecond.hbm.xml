@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.eleven.categorySecond.pojo.CategorySecond" table="categorysecond" lazy="false">
+        <id name="csid">
+            <generator class="native"/>
+        </id>
+        <property name="csname" column="csname"/>
+        <many-to-one name="category" class="cn.eleven.category.pojo.Category" column="cid">
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -28,6 +28,7 @@
         <action name="CheckImage" class="CheckImageAction"/>
         <action name="product_*" class="ProductAction" method="{1}">
             <result name="findByPid">/WEB-INF/jsp/product.jsp</result>
+            <result name="findByCid">/WEB-INF/jsp/productList.jsp</result>
         </action>
     </package>
 </struts>

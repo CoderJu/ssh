@@ -43,6 +43,7 @@
                 <value>user/pojo/User.hbm.xml</value>
                 <value>category/pojo/Categoey.hbm.xml</value>
                 <value>product/pojo/Product.hbm.xml</value>
+                <value>categorySecond.pojo/CategorySecond.hbm.xml</value>
             </list>
         </property>
     </bean>

@@ -8,5 +8,9 @@
             <generator class="native"/>
         </id>
         <property name="cname" column="cname"/>
+        <set name="categorySeconds" lazy="false" order-by="csid">
+            <key column="cid"></key>
+            <one-to-many class="cn.eleven.categorySecond.pojo.CategorySecond"/>
+        </set>
     </class>
 </hibernate-mapping>

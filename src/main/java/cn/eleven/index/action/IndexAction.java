@@ -31,6 +31,7 @@ public class IndexAction extends ActionSupport{
         List<Category> categoryList =  categoryService.findAll();
         //将一级分类存入到session的范围
         ActionContext.getContext().getSession().put("categoryList",categoryList);
+
         List<Product> hotProductsList =  productService.findAllHot();
 
         List<Product> newProductsList = productService.findAllNew();
