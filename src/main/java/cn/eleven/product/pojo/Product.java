@@ -1,5 +1,7 @@
 package cn.eleven.product.pojo;
 
+import cn.eleven.categorySecond.pojo.CategorySecond;
+
 import java.util.Date;
 
 /**
@@ -15,7 +17,15 @@ public class Product {
     private Integer is_hot;
     private Date pdate;
     //二级目录的外键，使用二级目录的对象
+    private CategorySecond categorySecond;
 
+    public CategorySecond getCategorySecond() {
+        return categorySecond;
+    }
+
+    public void setCategorySecond(CategorySecond categorySecond) {
+        this.categorySecond = categorySecond;
+    }
 
     public Integer getPid() {
         return pid;

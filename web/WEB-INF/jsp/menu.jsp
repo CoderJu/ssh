@@ -59,7 +59,7 @@
         </li>
         <s:iterator value="#session.categoryList" var="category">
         <li>
-            <a href="${pageContext.request.contextPath}/product_findByCid?cid=<s:property value="#category.cid"/>"><s:property value="#category.cname"/> </a>
+            <a href="${pageContext.request.contextPath}/product_findByCid?cid=<s:property value="#category.cid"/>&page=1"><s:property value="#category.cname"/> </a>
             |
         </li>
         </s:iterator>

@@ -2,9 +2,11 @@ package cn.eleven.product.dao;
 
 
 import cn.eleven.product.pojo.Product;
+import cn.eleven.utils.PageHibernateCallback;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import java.util.List;
@@ -32,5 +34,24 @@ public class ProductDao  extends HibernateDaoSupport{
 
     public Product findById(Integer pid) {
         return this.getHibernateTemplate().get(Product.class,pid);
+    }
+
+    public int findCountByCid(Integer cid) {
+        String hql = "select count(*) from Product p where p.categorySecond.category.cid = ?";
+        List<Long> list = (List<Long>) this.getHibernateTemplate().find(hql,cid);
+        if (list != null && list.size()>0){
+            return list.get(0).intValue();
+        }
+            return 0;
+    }
+
+    public List<Product> findByPageCid(Integer cid, int begin, int limit) {
+        String hql = "select p from Product p join p.categorySecond cs join cs.category c  where c.cid =?";
+        List<Product> list = this.getHibernateTemplate()
+                .execute(new PageHibernateCallback<Product>(hql,new Object[]{cid},begin,limit));
+        if (list != null && list.size() >0){
+            return list;
+        }
+        return null;
     }
 }

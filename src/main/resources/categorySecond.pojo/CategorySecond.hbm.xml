@@ -8,7 +8,12 @@
             <generator class="native"/>
         </id>
         <property name="csname" column="csname"/>
-        <many-to-one name="category" class="cn.eleven.category.pojo.Category" column="cid">
-        </many-to-one>
+        <many-to-one name="category" class="cn.eleven.category.pojo.Category" column="cid" lazy="false"/>
+
+        <!--二级分类和商品的映射-->
+        <set name="products">
+            <key column="csid"/>
+            <one-to-many class="cn.eleven.product.pojo.Product"/>
+        </set>
     </class>
 </hibernate-mapping>
