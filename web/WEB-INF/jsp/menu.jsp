@@ -44,7 +44,7 @@
         </ul>
     </div>
     <div class="cart">
-        <a  href="${pageContext.request.contextPath}/购物车.htm">购物车</a>
+        <a  href="${pageContext.request.contextPath}/cart_showCart" target="_blank">购物车</a>
     </div>
     <div class="phone">
         客服热线:

@@ -64,9 +64,12 @@
     </bean>
     <!--验证码Action-->
     <bean name="CheckImageAction" class="cn.eleven.user.action.CheckImageAction" scope="prototype">
-
     </bean>
     <bean name="ProductAction" class="cn.eleven.product.action.ProductAction" scope="prototype">
+        <property name="productService" ref="productService"/>
+    </bean>
+
+    <bean name="CartAction" class="cn.eleven.cart.action.CartAction" scope="prototype">
         <property name="productService" ref="productService"/>
     </bean>
     <!--service的相关配置-->

@@ -8,7 +8,11 @@
 	<title>网上商城</title>
 	<link href="${pageContext.request.contextPath}/css/common.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/css/product.css" rel="stylesheet" type="text/css">
-
+<script type="application/javascript">
+    function addToCart() {
+        document.getElementById("cartForm").submit();
+    }
+</script>
 
 </head>
 <body>
@@ -81,26 +85,27 @@
 				</dd>
 			</dl>
 		</div>
+        <form id="cartForm" action="${pageContext.request.contextPath}/cart_addCart" method="post">
 		<div class="action">
-
+            <input type="hidden" id="pid" name="pid" value="<s:property value="model.pid" />"/>
 			<dl class="quantity">
 				<dt>购买数量:</dt>
 				<dd>
-					<input id="quantity" name="quantity" value="1" maxlength="4" onpaste="return false;" type="text">
-					<div>
-						<span id="increase" class="increase">&nbsp;</span>
-						<span id="decrease" class="decrease">&nbsp;</span>
-					</div>
+					<input id="count" name="count" value="1" maxlength="4" onpaste="return false;" type="text">
+					<%--<div>--%>
+						<%--<span id="increase" class="increase">&nbsp;</span>--%>
+						<%--<span id="decrease" class="decrease">&nbsp;</span>--%>
+					<%--</div>--%>
 				</dd>
 				<dd>
 					件
 				</dd>
 			</dl>
 			<div class="buy">
-				<input id="addCart" class="addCart" value="加入购物车" type="button">
-
+				<input id="addCart" class="addCart" value="加入购物车" type="button" onclick="addToCart()">
 			</div>
 		</div>
+        </form>
 		<div id="bar" class="bar">
 			<ul>
 				<li id="introductionTab">
