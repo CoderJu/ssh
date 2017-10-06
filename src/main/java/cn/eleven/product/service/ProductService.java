@@ -1,5 +1,6 @@
 package cn.eleven.product.service;
 
+import cn.eleven.categorySecond.pojo.CategorySecond;
 import cn.eleven.product.dao.ProductDao;
 import cn.eleven.product.pojo.Product;
 import cn.eleven.utils.PageBean;
@@ -51,6 +52,29 @@ public class ProductService {
         int begin = (page - 1 )* limit;
 
         List<Product> list = productDao.findByPageCid(cid,begin,limit);
+        pageBean.setList(list);
+        return pageBean;
+    }
+
+    public PageBean<Product> findByPageByCsid(Integer csid, int page) {
+        PageBean<Product> pageBean = new PageBean<Product>();
+        int limit = 8;
+        pageBean.setLimit(limit);
+        pageBean.setPage(page);
+        int totalCount = productDao.findCountByCsid(csid);
+        pageBean.setTotalCount(totalCount);
+        int totalPage = 0;
+        // Math.ceil();
+        if (totalCount % limit == 0){
+            totalPage = totalCount / limit;
+        }else{
+            totalPage = totalCount / limit + 1;
+        }
+        pageBean.setTotalPage(totalPage);
+        //开始
+        int begin = (page - 1 )* limit;
+
+        List<Product> list = productDao.findByPageCsid(csid,begin,limit);
         pageBean.setList(list);
         return pageBean;
     }

@@ -2,6 +2,7 @@ package cn.eleven.product.action;
 
 import cn.eleven.category.pojo.Category;
 import cn.eleven.category.service.CategoryService;
+import cn.eleven.categorySecond.pojo.CategorySecond;
 import cn.eleven.product.pojo.Product;
 import cn.eleven.product.service.ProductService;
 import cn.eleven.utils.PageBean;
@@ -23,6 +24,15 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
     private CategoryService categoryService;
     private Integer cid;
     private int page;
+    private Integer csid;
+
+    public Integer getCsid() {
+        return csid;
+    }
+
+    public void setCsid(Integer csid) {
+        this.csid = csid;
+    }
 
     public int getPage() {
         return page;
@@ -61,7 +71,6 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
     }
 
     public String findByCid(){
-
         Object set = ActionContext.getContext().getSession().get("categoryList");
         System.out.println("cid===="+cid);
         System.out.println("page>>>>>>>>>>>>>"+page);
@@ -71,5 +80,11 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
         //System.out.println("page>>>>>>>>>>>>>"+pageBean.getPage());
         ActionContext.getContext().getValueStack().set("pageBean",pageBean);
         return "findByCid";
+    }
+
+    public String findByCsid(){
+        PageBean<Product> pageBean = productService.findByPageByCsid(csid,page);
+        ActionContext.getContext().getValueStack().set("pageBean",pageBean);
+        return "findByCsid";
     }
 }
