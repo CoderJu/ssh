@@ -10,7 +10,7 @@
         <property name="count" column="count"/>
         <property name="subtotal" column="subtotal"/>
         <!--关联关系-->
-        <many-to-one name="order" class="cn.eleven.order.pojo.Order" column="oid"/>
+        <many-to-one name="order" class="cn.eleven.order.pojo.Order" column="oid" lazy="false"/>
         <many-to-one name="product" class="cn.eleven.product.pojo.Product"  lazy="false" column="pid"/>
 
     </class>

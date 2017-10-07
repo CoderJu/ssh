@@ -50,4 +50,8 @@ public class OrderService {
     public Order findByOid(Integer oid) {
         return orderDao.findByOid(oid);
     }
+
+    public void update(Order currOrder) {
+        orderDao.update(currOrder);
+    }
 }

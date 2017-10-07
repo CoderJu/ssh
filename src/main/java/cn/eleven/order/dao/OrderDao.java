@@ -35,4 +35,8 @@ public class OrderDao extends HibernateDaoSupport {
     public Order findByOid(Integer oid) {
         return  this.getHibernateTemplate().get(Order.class,oid);
     }
+
+    public void update(Order currOrder) {
+        this.getHibernateTemplate().update(currOrder);
+    }
 }

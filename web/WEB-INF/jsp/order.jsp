@@ -67,7 +67,7 @@
             <s:iterator var="orderItem" value="model.orderItems">
             <tr>
                 <td width="60">
-                    <input type="hidden" name="id" value="22"/>
+                    <input type="hidden" name="oid"  id="oid" value="<s:property value="model.oid"/>"/>
                     <img src="${pageContext.request.contextPath}<s:property value="#orderItem.product.image"/>"/>
                 </td>
                 <td>
@@ -93,7 +93,7 @@
             商品金额: <strong id="effectivePrice">￥<s:property value="model.total"/></strong>
         </div>
         <form id="orderForm" action="${pageContext.request.contextPath}/order_payOrder.action" method="post">
-            <input type="hidden" name="order.oid" value=""/>
+            <input type="hidden" name="oid" value="<s:property value="model.oid"/>"/>
             <div class="span24">
                 <p>
                     收货地址：<input name="order.user.addr" type="text" value="<s:property value="model.user.addr"/>" style="width:350px" />
