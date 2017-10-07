@@ -44,6 +44,8 @@
                 <value>category/pojo/Categoey.hbm.xml</value>
                 <value>product/pojo/Product.hbm.xml</value>
                 <value>categorySecond.pojo/CategorySecond.hbm.xml</value>
+                <value>order/pojo/Order.hbm.xml</value>
+                <value>order/pojo/OrderItem.hbm.xml</value>
             </list>
         </property>
     </bean>
@@ -72,6 +74,10 @@
     <bean name="CartAction" class="cn.eleven.cart.action.CartAction" scope="prototype">
         <property name="productService" ref="productService"/>
     </bean>
+
+    <bean name="orderAction" class="cn.eleven.order.action.OrderAction" scope="prototype">
+        <property name="orderService" ref="orderService"/>
+    </bean>
     <!--service的相关配置-->
     <bean name="userService" class="cn.eleven.user.service.UserService" >
         <property name="userDao" ref="userDao"/>
@@ -82,6 +88,9 @@
     </bean>
     <bean name="productService" class="cn.eleven.product.service.ProductService" >
         <property name="productDao" ref="productDao"/>
+    </bean>
+    <bean name="orderService" class="cn.eleven.order.service.OrderService">
+        <property name="orderDao" ref="orderDao"/>
     </bean>
 
     <!--Dao的相关配置-->
@@ -94,6 +103,8 @@
     <bean name="productDao" class="cn.eleven.product.dao.ProductDao" >
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
+    <bean name="orderDao" class="cn.eleven.order.dao.OrderDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
 </beans>

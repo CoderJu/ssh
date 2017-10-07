@@ -22,7 +22,7 @@
                  欢迎<s:property value="#session.exitUser.name"/>&nbsp;|
                 </li>
                 <li id="" class="">
-                    <a href="#">我的订单</a>|
+                    <a href="${pageContext.request.contextPath}/order_findByUid?page=1">我的订单</a>|
                 </li>
 
                 <li id="" class="">

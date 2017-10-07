@@ -10,6 +10,7 @@
     <package name="shop" extends="struts-default" namespace="/">
         <global-results>
             <result name="msg">/WEB-INF/jsp/msg.jsp</result>
+            <result name="login">/WEB-INF/jsp/login.jsp</result>
         </global-results>
         <global-allowed-methods>regex:.*</global-allowed-methods>
         <action name="index" class="indexAction">
@@ -36,6 +37,11 @@
             <result name="clearCart">/WEB-INF/jsp/cart.jsp</result>
             <result name="deleteCart">/WEB-INF/jsp/cart.jsp</result>
             <result name="showCart">/WEB-INF/jsp/cart.jsp</result>
+        </action>
+        <action name="order_*" class="orderAction" method="{1}">
+            <result name="saveSuccess">/WEB-INF/jsp/order.jsp</result>
+            <result name="findByUidSuccess">/WEB-INF/jsp/orderList.jsp</result>
+            <result name="findByOidSuccess">/WEB-INF/jsp/order.jsp</result>
         </action>
     </package>
 </struts>

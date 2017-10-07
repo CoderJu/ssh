@@ -86,7 +86,7 @@
         </div>
         <div class="bottom">
             <a href="${pageContext.request.contextPath}/cart_clearCart" id="clear" class="clear">清空购物车</a>
-            <a href="login.htm" id="submit" class="submit">提交订单</a>
+            <a href="${pageContext.request.contextPath}/order_save" id="submit" class="submit">提交订单</a>
         </div>
     </div>
     </s:if>
