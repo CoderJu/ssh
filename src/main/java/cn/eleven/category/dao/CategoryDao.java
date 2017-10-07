@@ -17,4 +17,25 @@ public class CategoryDao extends HibernateDaoSupport {
        List<Category> list = (List<Category>) this.getHibernateTemplate().find(hql);
        return list;
     }
+
+    public void save(Category category) {
+        this.getHibernateTemplate().save(category);
+    }
+
+    public Category findByCid(Integer cid) {
+        String hql ="from Category where cid = ?";
+        List<Category> list = (List<Category>) this.getHibernateTemplate().find(hql,cid);
+        if (list != null && list.size()>0){
+            return list.get(0);
+        }
+        return null;
+    }
+
+    public void update(Category category) {
+        this.getHibernateTemplate().update(category);
+    }
+
+    public void deleteByCid(Category category) {
+        this.getHibernateTemplate().delete(category);
+    }
 }

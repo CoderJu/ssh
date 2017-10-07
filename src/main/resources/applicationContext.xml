@@ -46,6 +46,7 @@
                 <value>categorySecond.pojo/CategorySecond.hbm.xml</value>
                 <value>order/pojo/Order.hbm.xml</value>
                 <value>order/pojo/OrderItem.hbm.xml</value>
+                <value>admin/pojo/Admin.hbm.xml</value>
             </list>
         </property>
     </bean>
@@ -106,5 +107,22 @@
     <bean name="orderDao" class="cn.eleven.order.dao.OrderDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
+    <!--后台相关配置-->
+    <bean name="adminAction" class="cn.eleven.admin.action.AdminAction" scope="prototype">
+        <property name="adminService" ref="adminService"/>
+    </bean>
+    <bean name="adminCategoryAction" class="cn.eleven.category.adminAction.AdminCategoryAction" scope="prototype">
+        <property name="categoryService" ref="categoryService"/>
+    </bean>
+
+    <bean name="adminService" class="cn.eleven.admin.service.AdminService">
+        <property name="adminDao" ref="adminDao"/>
+    </bean>
+    <bean name="adminDao" class="cn.eleven.admin.dao.AdminDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
 
 </beans>
