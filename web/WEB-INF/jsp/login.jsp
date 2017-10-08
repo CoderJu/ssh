@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="S" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0080)http://localhost:8080/mango/login.jhtml?redirectUrl=%2Fmango%2Fcart%2Flist.jhtml -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -29,7 +29,7 @@
 <div class="container header">
     <div class="span5">
         <div class="logo">
-            <a href="http://localhost:8080/mango/">
+            <a href="${pageContext.request.contextPath}/index.action">
                 <img src="${pageContext.request.contextPath}/image/r___________renleipic_01/timg.jpg" alt="孔明书店">
             </a>
         </div>
@@ -82,7 +82,7 @@
 										<span class="fieldSet">
 											<input type="text" id="checkCode" name="checkCode" class="text captcha" maxlength="4" autocomplete="off"><img id="checkImg" class="captchaImage" src="${pageContext.request.contextPath}/CheckImage.action" title="点击更换验证码" onclick="change()">
 										</span>
-                                <strong><S:actionerror/></strong>
+                                <strong><s:actionerror/></strong>
                             </td>
                         </tr>
                         <tr>

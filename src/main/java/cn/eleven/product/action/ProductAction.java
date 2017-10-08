@@ -72,12 +72,9 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 
     public String findByCid(){
         Object set = ActionContext.getContext().getSession().get("categoryList");
-        System.out.println("cid===="+cid);
-        System.out.println("page>>>>>>>>>>>>>"+page);
         PageBean<Product> pageBean = productService.findByPageByCid(cid,page);
        // List<Category> categories = categoryService.findAll();//获取一级分类
         //pageBean存入值栈
-        //System.out.println("page>>>>>>>>>>>>>"+pageBean.getPage());
         ActionContext.getContext().getValueStack().set("pageBean",pageBean);
         return "findByCid";
     }

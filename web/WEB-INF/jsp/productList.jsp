@@ -15,7 +15,7 @@
 <div class="container header">
 	<div class="span5">
 		<div class="logo">
-			<a href="http://localhost:8080/mango/">
+			<a href="${pageContext.request.contextPath}/index.action">
 				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/timg.jpg" alt="传智播客">
 			</a>
 		</div>
@@ -102,12 +102,12 @@
 							<span class="currentPage"><s:property value="#i"/></span>
 						</s:if>
 						<s:else>
-							<a href="${pageContext.request.contextPath}/product_findByCsid?cid=<s:property value="csid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
+							<a href="${pageContext.request.contextPath}/product_findByCsid?csid=<s:property value="csid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
 						</s:else>
 					</s:iterator>
 					<s:if test="pageBean.page != pageBean.totalPage">
-						<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCsid?cid=<s:property value="csid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
-						<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCsid?cid=<s:property value="csid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
+						<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCsid?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
+						<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCsid?csid=<s:property value="csid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
 					</s:if>
 				</s:if>
 			</div>
