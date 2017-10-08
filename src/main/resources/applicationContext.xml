@@ -126,6 +126,9 @@
     <bean name="adminOrderAction" class="cn.eleven.order.adminAction.AdminOrderAction" scope="prototype">
         <property name="orderService" ref="orderService"/>
     </bean>
+    <bean name="adminUserAction" class="cn.eleven.user.adminAction.AdminUserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
 
     <bean name="adminService" class="cn.eleven.admin.service.AdminService">
         <property name="adminDao" ref="adminDao"/>
