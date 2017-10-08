@@ -7,9 +7,13 @@
 
     <constant name="struts.devMode" value="false"/>
     <package name="shop" extends="struts-default" namespace="/">
+        <interceptors>
+            <interceptor name="PrivilegeInterceptor" class="cn.eleven.interceptor.PrivilegeInterceptor"/>
+        </interceptors>
         <global-results>
             <result name="msg">/WEB-INF/jsp/msg.jsp</result>
             <result name="login">/WEB-INF/jsp/login.jsp</result>
+            <result name="loginFail">/admin/index.jsp</result>
         </global-results>
         <global-allowed-methods>regex:.*</global-allowed-methods>
         <action name="index" class="indexAction">
@@ -41,7 +45,9 @@
             <result name="saveSuccess">/WEB-INF/jsp/order.jsp</result>
             <result name="findByUidSuccess">/WEB-INF/jsp/orderList.jsp</result>
             <result name="findByOidSuccess">/WEB-INF/jsp/order.jsp</result>
+            <result name="updateState" type="redirectAction">order_findByUid.action?page=1</result>
         </action>
+
         <action name="admin_*" class="adminAction" method="{1}">
             <result name="loginFail">/admin/index.jsp</result>
             <result name="loginSuccess" type="redirect">/admin/home.jsp</result>
@@ -52,6 +58,8 @@
             <result name="updateSuccess" type="redirectAction">adminCategory_findAll.action</result>
             <result name="deleteSuccess" type="redirectAction">adminCategory_findAll.action</result>
             <result name="editPage">/admin/category/edit.jsp</result>
+            <interceptor-ref name="PrivilegeInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
         </action>
         <action name="adminCategorySecond_*" class="adminCategorySecondAction" method="{1}">
             <result name="findAllByPage">/admin/categorySecond/list.jsp</result>
@@ -60,6 +68,8 @@
             <result name="deleteSuccess" type="redirectAction">adminCategorySecond_findAllByPage.action?page=1</result>
             <result name="editPage">/admin/categorySecond/edit.jsp</result>
             <result name="updateSuccess" type="redirectAction">adminCategorySecond_findAllByPage.action?page=1</result>
+            <interceptor-ref name="PrivilegeInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
         </action>
         <action name="adminProduct_*" class="adminProductAction" method="{1}">
             <result name="findAllByPage">/admin/product/list.jsp</result>
@@ -68,6 +78,16 @@
             <result name="deleteSuccess" type="redirectAction">adminProduct_findAllByPage.action?page=1</result>
             <result name="editPage">/admin/product/edit.jsp</result>
             <result name="updateSuccess" type="redirectAction">adminProduct_findAllByPage.action?page=1</result>
+            <interceptor-ref name="PrivilegeInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+        <action name="adminOrder_*" class="adminOrderAction" method="{1}">
+            <result name="findAllByPage">/admin/order/list.jsp</result>
+            <result name="findOrderItem">/admin/order/orderItem.jsp</result>
+            <result name="updateState" type="redirectAction">adminOrder_findAllByPage.action?page=1</result>
+            <result name="findByState">/admin/order/stateList.jsp</result>
+            <interceptor-ref name="PrivilegeInterceptor"/>
+            <interceptor-ref name="defaultStack"/>
         </action>
     </package>
 </struts>

@@ -16,7 +16,7 @@
         <!--关联关系-->
         <many-to-one name="user" class="cn.eleven.user.pojo.User" column="uid" lazy="false"></many-to-one>
 
-        <set name="orderItems" cascade="save-update" lazy="false">
+        <set name="orderItems" order-by="oid" cascade="save-update" lazy="false">
             <key column="oid"/>
             <one-to-many class="cn.eleven.order.pojo.OrderItem"/>
         </set>

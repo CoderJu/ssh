@@ -1,6 +1,7 @@
 package cn.eleven.order.dao;
 
 import cn.eleven.order.pojo.Order;
+import cn.eleven.order.pojo.OrderItem;
 import cn.eleven.utils.PageHibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,5 +39,44 @@ public class OrderDao extends HibernateDaoSupport {
 
     public void update(Order currOrder) {
         this.getHibernateTemplate().update(currOrder);
+    }
+
+    public Integer findByCountAll() {
+        String hql = "select count(*) from Order  ";
+        List<Long> list = (List<Long>) this.getHibernateTemplate().find(hql);
+        if (list != null && list.size()>0){
+            return list.get(0).intValue();
+        }
+        return 0;
+    }
+
+    public List<Order> findByPage(int begin, int limit) {
+        String hql = "from Order o  order by ordertime";
+        List<Order> list =  this.getHibernateTemplate().execute(new PageHibernateCallback<Order>(hql,null,begin,limit));
+        return list;
+    }
+
+    public List<OrderItem> findOrderItem(Integer oid) {
+        String hql = "from OrderItem  oi where oi.order.oid = ?";
+        List<OrderItem> list = (List<OrderItem>) this.getHibernateTemplate().find(hql,oid);
+        if (list != null && list.size()>0){
+            return list;
+        }
+        return null;
+    }
+
+    public Integer findByCountAllState(Integer state) {
+        String hql = "select count(*) from Order o where o.state = ?";
+        List<Long> list = (List<Long>) this.getHibernateTemplate().find(hql,state);
+        if (list != null && list.size()>0){
+            return list.get(0).intValue();
+        }
+        return 0;
+    }
+
+    public List<Order> findByPageState(Integer state, int begin, int limit) {
+        String hql = "from Order o where o.state = ? order by ordertime";
+        List<Order> list =  this.getHibernateTemplate().execute(new PageHibernateCallback<Order>(hql,new Integer[]{state},begin,limit));
+        return list;
     }
 }
