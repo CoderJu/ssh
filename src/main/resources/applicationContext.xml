@@ -119,6 +119,10 @@
         <property name="categorySecondSerivce" ref="categorySecondSerivce"/>
         <property name="categoryService" ref="categoryService"/>
     </bean>
+    <bean name="adminProductAction" class="cn.eleven.product.adminAction.AdminProductAction" scope="prototype">
+        <property name="productService" ref="productService"/>
+        <property name="categorySecondSerivce" ref="categorySecondSerivce"/>
+    </bean>
 
     <bean name="adminService" class="cn.eleven.admin.service.AdminService">
         <property name="adminDao" ref="adminDao"/>

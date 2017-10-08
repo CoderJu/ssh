@@ -78,4 +78,39 @@ public class ProductService {
         pageBean.setList(list);
         return pageBean;
     }
+
+    public PageBean<Product> findAllByPage(Product product, Integer page) {
+        PageBean<Product> pageBean = new PageBean<Product>();
+        int limit = 8;
+        pageBean.setLimit(limit);
+        pageBean.setPage(page);
+        int totalCount = productDao.findCount();
+        pageBean.setTotalCount(totalCount);
+        int totalPage = 0;
+        // Math.ceil();
+        if (totalCount % limit == 0){
+            totalPage = totalCount / limit;
+        }else{
+            totalPage = totalCount / limit + 1;
+        }
+        pageBean.setTotalPage(totalPage);
+        //开始
+        int begin = (page - 1 )* limit;
+
+        List<Product> list = productDao.findByPage(begin,limit);
+        pageBean.setList(list);
+        return pageBean;
+    }
+
+    public void save(Product product) {
+        productDao.save(product);
+    }
+
+    public  void delete(Product product) {
+        productDao.delete(product);
+    }
+
+    public void update(Product product) {
+        productDao.update(product);
+    }
 }

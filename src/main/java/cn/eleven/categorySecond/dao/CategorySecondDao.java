@@ -45,4 +45,9 @@ public class CategorySecondDao extends HibernateDaoSupport {
     public void update(CategorySecond categorySecond) {
         this.getHibernateTemplate().update(categorySecond);
     }
+
+    public List<CategorySecond> findAll() {
+        String hql = "from CategorySecond";
+        return (List<CategorySecond>) this.getHibernateTemplate().find(hql);
+    }
 }

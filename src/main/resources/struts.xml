@@ -61,5 +61,13 @@
             <result name="editPage">/admin/categorySecond/edit.jsp</result>
             <result name="updateSuccess" type="redirectAction">adminCategorySecond_findAllByPage.action?page=1</result>
         </action>
+        <action name="adminProduct_*" class="adminProductAction" method="{1}">
+            <result name="findAllByPage">/admin/product/list.jsp</result>
+            <result name="addPage">/admin/product/add.jsp</result>
+            <result name="saveSuccess" type="redirectAction">adminProduct_findAllByPage.action?page=1</result>
+            <result name="deleteSuccess" type="redirectAction">adminProduct_findAllByPage.action?page=1</result>
+            <result name="editPage">/admin/product/edit.jsp</result>
+            <result name="updateSuccess" type="redirectAction">adminProduct_findAllByPage.action?page=1</result>
+        </action>
     </package>
 </struts>
