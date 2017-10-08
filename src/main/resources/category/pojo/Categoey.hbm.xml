@@ -8,7 +8,7 @@
             <generator class="native"/>
         </id>
         <property name="cname" column="cname"/>
-        <set name="categorySeconds" lazy="false" order-by="csid">
+        <set name="categorySeconds" lazy="false" order-by="csid" cascade="delete">
             <key column="cid"></key>
             <one-to-many class="cn.eleven.categorySecond.pojo.CategorySecond"/>
         </set>

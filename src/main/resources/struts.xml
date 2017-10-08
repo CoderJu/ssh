@@ -53,5 +53,13 @@
             <result name="deleteSuccess" type="redirectAction">adminCategory_findAll.action</result>
             <result name="editPage">/admin/category/edit.jsp</result>
         </action>
+        <action name="adminCategorySecond_*" class="adminCategorySecondAction" method="{1}">
+            <result name="findAllByPage">/admin/categorySecond/list.jsp</result>
+            <result name="addPage">/admin/categorySecond/add.jsp</result>
+            <result name="saveSuccess" type="redirectAction">adminCategorySecond_findAllByPage.action?page=1</result>
+            <result name="deleteSuccess" type="redirectAction">adminCategorySecond_findAllByPage.action?page=1</result>
+            <result name="editPage">/admin/categorySecond/edit.jsp</result>
+            <result name="updateSuccess" type="redirectAction">adminCategorySecond_findAllByPage.action?page=1</result>
+        </action>
     </package>
 </struts>

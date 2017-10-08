@@ -115,11 +115,23 @@
     <bean name="adminCategoryAction" class="cn.eleven.category.adminAction.AdminCategoryAction" scope="prototype">
         <property name="categoryService" ref="categoryService"/>
     </bean>
+    <bean name="adminCategorySecondAction" class="cn.eleven.categorySecond.adminCategorySecond.AdminCategorySecondAction" scope="prototype">
+        <property name="categorySecondSerivce" ref="categorySecondSerivce"/>
+        <property name="categoryService" ref="categoryService"/>
+    </bean>
 
     <bean name="adminService" class="cn.eleven.admin.service.AdminService">
         <property name="adminDao" ref="adminDao"/>
     </bean>
+    <bean name="categorySecondSerivce" class="cn.eleven.categorySecond.service.CategorySecondSerivce">
+        <property name="categorySecondDao" ref="categorySecondDao"/>
+    </bean>
+
+
     <bean name="adminDao" class="cn.eleven.admin.dao.AdminDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="categorySecondDao" class="cn.eleven.categorySecond.dao.CategorySecondDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
